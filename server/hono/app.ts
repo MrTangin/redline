@@ -1,5 +1,8 @@
 import { Hono } from "hono";
 import { health } from "./routes/health";
+import { hook } from "./routes/hook";
+import { proxy } from "./routes/proxy";
+import { webhooks } from "./routes/webhooks";
 
 /**
  * The Hono app is mounted at /api via the hono/vercel adapter in
@@ -8,6 +11,9 @@ import { health } from "./routes/health";
  */
 export const app = new Hono()
   .basePath("/api")
-  .route("/health", health);
+  .route("/health", health)
+  .route("/proxy", proxy)
+  .route("/webhooks", webhooks)
+  .route("/hook", hook);
 
 export type AppType = typeof app;

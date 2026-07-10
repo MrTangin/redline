@@ -10,20 +10,24 @@ import {
 
 const faqs = [
   {
-    q: "Do I need Cloudflare or Vercel specifically?",
-    a: "No. This template targets default Next.js hosting — Vercel is the path of least resistance, but nothing here depends on a specific host beyond standard Next.js deployment. Adapters for other targets are explicitly out of scope for this version.",
+    q: "Is it actually free?",
+    a: "Yes. Both the API Tester and the Webhook Debugger are free to use — no plan, no seats, no credit card, no usage cap you'll hit mid-debug.",
   },
   {
-    q: "What if I want to add a module later?",
-    a: "Run pnpm run add:<module> — e.g. pnpm run add:auth. It installs that module's packages, scaffolds its files, and flips its flag in lib/project.config.ts, without touching anything you've already built or any other module.",
+    q: "Do I need an account?",
+    a: "No. Open either tool and start immediately. For the Webhook Debugger, the unique inbox URL you're given is effectively your access control — anyone with that link can see what lands in it, so don't post it somewhere public.",
   },
   {
-    q: "What if I don't need a database at all?",
-    a: "Leave modules.database as false. server/db/ never gets created, @supabase/supabase-js never gets installed, and no Supabase env var is ever required. The app runs fully public with no database dependency.",
+    q: "How long is webhook history kept?",
+    a: "Requests stay attached to your inbox until you clear them or delete the inbox yourself — there's no account tying an inbox to you, so treat each one as disposable and spin up a fresh inbox per integration or test run.",
   },
   {
-    q: "Why Hono instead of plain Next.js route handlers?",
-    a: "Hono gives cleaner route composition, middleware, and RPC-style type safety than scattering logic across many app/api/**/route.ts files — while still being mounted through Next.js's own hosting and routing via the hono/vercel adapter.",
+    q: "Is it safe to test endpoints with real auth headers?",
+    a: "The API Tester's proxy forwards exactly what you type — URL, headers, body — straight to the destination you specify and streams the response back; nothing is logged server-side beyond that single request/response cycle. That said, treat it like any tool you'd paste a curl command into: fine for your own services and sandbox keys, worth avoiding for production secrets you wouldn't hand to a terminal you don't control. Requests to localhost and private/internal IP ranges are blocked outright.",
+  },
+  {
+    q: "What's the request timeout?",
+    a: "20 seconds. If the target doesn't respond in time, the request is aborted and reported as a timeout rather than hanging indefinitely.",
   },
 ];
 

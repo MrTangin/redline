@@ -1,9 +1,7 @@
 import { Hero } from "@/components/sections/hero";
-import { TechStackGrid } from "@/components/sections/tech-stack-grid";
-import { ModularByDesign } from "@/components/sections/modular-by-design";
-import { Pros } from "@/components/sections/pros";
-import { Quickstart } from "@/components/sections/quickstart";
-import { ArchitectureDiagram } from "@/components/sections/architecture-diagram";
+import { Features } from "@/components/sections/features";
+import { HowItWorks } from "@/components/sections/how-it-works";
+import { Trust } from "@/components/sections/trust";
 import { Faq } from "@/components/sections/faq";
 import { Footer } from "@/components/sections/footer";
 
@@ -11,11 +9,9 @@ export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
       <Hero />
-      <TechStackGrid />
-      <ModularByDesign />
-      <Pros />
-      <Quickstart />
-      <ArchitectureDiagram />
+      <Features />
+      <HowItWorks />
+      <Trust />
       <Faq />
       <Footer />
     </main>

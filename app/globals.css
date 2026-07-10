@@ -4,6 +4,50 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Brand palette — Redline. Raw scale values live here so Tailwind utilities
+ * like `bg-scarlet-rush-500` or `text-orange-400` are always available,
+ * independent of which semantic token (primary/accent/etc.) currently maps
+ * to them below.
+ */
+@theme {
+  --color-scarlet-rush-50: #fbe9eb;
+  --color-scarlet-rush-100: #f8d3d6;
+  --color-scarlet-rush-200: #f0a8ae;
+  --color-scarlet-rush-300: #e97c85;
+  --color-scarlet-rush-400: #e1515d;
+  --color-scarlet-rush-500: #da2534;
+  --color-scarlet-rush-600: #ae1e2a;
+  --color-scarlet-rush-700: #83161f;
+  --color-scarlet-rush-800: #570f15;
+  --color-scarlet-rush-900: #2c070a;
+  --color-scarlet-rush-950: #1f0507;
+
+  --color-orange-50: #fef6e7;
+  --color-orange-100: #fcedcf;
+  --color-orange-200: #fadb9e;
+  --color-orange-300: #f7c96e;
+  --color-orange-400: #f5b83d;
+  --color-orange-500: #f2a60d;
+  --color-orange-600: #c2850a;
+  --color-orange-700: #916308;
+  --color-orange-800: #614205;
+  --color-orange-900: #302103;
+  --color-orange-950: #221702;
+
+  --color-shadow-grey-50: #f3f1f2;
+  --color-shadow-grey-100: #e7e4e5;
+  --color-shadow-grey-200: #d0c8cb;
+  --color-shadow-grey-300: #b8adb1;
+  --color-shadow-grey-400: #a09297;
+  --color-shadow-grey-500: #88777d;
+  --color-shadow-grey-600: #6d5f64;
+  --color-shadow-grey-700: #52474b;
+  --color-shadow-grey-800: #372f32;
+  --color-shadow-grey-900: #1b1819;
+  --color-shadow-grey-950: #131111;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -40,6 +84,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -50,72 +98,80 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --background: #ffffff;
+  --foreground: var(--color-shadow-grey-950);
+  --card: #ffffff;
+  --card-foreground: var(--color-shadow-grey-950);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-shadow-grey-950);
+  --primary: var(--color-scarlet-rush-500);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-shadow-grey-100);
+  --secondary-foreground: var(--color-shadow-grey-900);
+  --muted: var(--color-shadow-grey-100);
+  --muted-foreground: var(--color-shadow-grey-600);
+  --accent: var(--color-orange-500);
+  --accent-foreground: var(--color-shadow-grey-950);
+  --destructive: var(--color-scarlet-rush-600);
+  --border: var(--color-shadow-grey-200);
+  --input: var(--color-shadow-grey-200);
+  --ring: var(--color-scarlet-rush-400);
+  --success: #1a7f4b;
+  --success-foreground: #ffffff;
+  --warning: var(--color-orange-600);
+  --warning-foreground: #ffffff;
+  --chart-1: var(--color-scarlet-rush-500);
+  --chart-2: var(--color-orange-500);
+  --chart-3: var(--color-shadow-grey-400);
+  --chart-4: var(--color-scarlet-rush-300);
+  --chart-5: var(--color-orange-300);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: var(--color-shadow-grey-50);
+  --sidebar-foreground: var(--color-shadow-grey-950);
+  --sidebar-primary: var(--color-scarlet-rush-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--color-shadow-grey-100);
+  --sidebar-accent-foreground: var(--color-shadow-grey-900);
+  --sidebar-border: var(--color-shadow-grey-200);
+  --sidebar-ring: var(--color-scarlet-rush-400);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: var(--color-shadow-grey-950);
+  --foreground: var(--color-shadow-grey-50);
+  --card: var(--color-shadow-grey-900);
+  --card-foreground: var(--color-shadow-grey-50);
+  --popover: var(--color-shadow-grey-900);
+  --popover-foreground: var(--color-shadow-grey-50);
+  --primary: var(--color-scarlet-rush-500);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-shadow-grey-800);
+  --secondary-foreground: var(--color-shadow-grey-50);
+  --muted: var(--color-shadow-grey-800);
+  --muted-foreground: var(--color-shadow-grey-400);
+  --accent: var(--color-orange-500);
+  --accent-foreground: var(--color-shadow-grey-950);
+  --destructive: var(--color-scarlet-rush-400);
+  --border: color-mix(in oklch, var(--color-shadow-grey-50) 10%, transparent);
+  --input: color-mix(in oklch, var(--color-shadow-grey-50) 12%, transparent);
+  --ring: var(--color-scarlet-rush-400);
+  --success: #34c47a;
+  --success-foreground: var(--color-shadow-grey-950);
+  --warning: var(--color-orange-400);
+  --warning-foreground: var(--color-shadow-grey-950);
+  --chart-1: var(--color-scarlet-rush-500);
+  --chart-2: var(--color-orange-500);
+  --chart-3: var(--color-shadow-grey-400);
+  --chart-4: var(--color-scarlet-rush-300);
+  --chart-5: var(--color-orange-300);
+  --sidebar: var(--color-shadow-grey-900);
+  --sidebar-foreground: var(--color-shadow-grey-50);
+  --sidebar-primary: var(--color-scarlet-rush-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--color-shadow-grey-800);
+  --sidebar-accent-foreground: var(--color-shadow-grey-50);
+  --sidebar-border: color-mix(in oklch, var(--color-shadow-grey-50) 10%, transparent);
+  --sidebar-ring: var(--color-scarlet-rush-400);
 }
 
 @layer base {
@@ -130,16 +186,31 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 @layer utilities {
-  .text-pearl-gradient {
+  /* Hero/wordmark accent: scarlet rush burning into orange. */
+  .text-redline-gradient {
     background-image: linear-gradient(
       100deg,
-      oklch(0.78 0.14 300),
-      oklch(0.82 0.12 210) 50%,
-      oklch(0.85 0.11 25)
+      var(--color-scarlet-rush-400) 10%,
+      var(--color-scarlet-rush-500) 45%,
+      var(--color-orange-500) 90%
     );
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+  }
+
+  /* Faint technical grid, for hero/section backgrounds. */
+  .bg-grid-faint {
+    background-image:
+      linear-gradient(to right, color-mix(in oklch, var(--color-shadow-grey-50) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklch, var(--color-shadow-grey-50) 6%, transparent) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }

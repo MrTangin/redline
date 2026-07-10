@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "@/components/providers/providers";
+import { NavHeader } from "@/components/nav-header";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,8 +23,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "NextPearlJs — The modular Next.js starter",
-  description: "The modular Next.js starter that installs only what you use.",
+  title: "Redline — API Endpoint Tester & Webhook Debugger",
+  description:
+    "Fire requests at any API and inspect the response, or spin up a live webhook inbox and watch requests land in real time. No account required.",
 };
 
 export default function RootLayout({
@@ -36,7 +40,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <Providers>{children}</Providers>
+        <Providers>
+          <TooltipProvider>
+            <NavHeader />
+            <main className="flex-1">{children}</main>
+            <Toaster />
+          </TooltipProvider>
+        </Providers>
       </body>
     </html>
   );

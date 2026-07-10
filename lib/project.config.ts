@@ -8,7 +8,7 @@
  */
 export const projectConfig = {
   modules: {
-    database: false, // Supabase
+    database: true, // Supabase
     auth: false, // Clerk
     analytics: false, // PostHog
     monitoring: false, // Sentry

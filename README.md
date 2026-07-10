@@ -1,17 +1,27 @@
-# NextPearlJs
+# Redline
 
-The modular Next.js starter that installs only what you use.
+API Endpoint Tester & Webhook Debugger. Fire requests at any API and inspect the
+response, or spin up a unique inbox URL and watch real webhooks land in real time.
 
 ```bash
 pnpm install
-pnpm run setup   # answer yes/no per module — a "no" installs nothing
 pnpm dev
 ```
 
-Full documentation — tech stack, the module toggle system, quickstart, architecture, FAQ — lives on the app's own showcase page (`app/page.tsx`), run `pnpm dev` and open `http://localhost:3000`.
+Two tools, no account required:
 
-Add a module later without re-scaffolding: `pnpm run add:database`, `add:auth`, `add:analytics`, or `add:monitoring`.
+- **`/tester`** — build a request (method, headers, body), send it through a
+  server-side proxy so CORS never gets in the way, and inspect status, timing,
+  headers, and body.
+- **`/webhooks`** — create a disposable inbox with a unique ingest URL, point any
+  webhook provider at it, and watch requests arrive live with full header/body
+  detail.
 
-See `.claude/skills/` for the design and architecture conventions this template follows.
+Requires a Supabase project for webhook history to persist across requests —
+see `supabase/schema.sql` and set `SUPABASE_URL`, `SUPABASE_ANON_KEY`,
+`SUPABASE_SERVICE_ROLE_KEY` in `.env.local`.
+
+Built on the modular Next.js + Hono starter this repo began from — see
+`.claude/skills/` for the design and architecture conventions it follows.
 
 MIT licensed.

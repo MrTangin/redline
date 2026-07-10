@@ -35,7 +35,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log("NextPearlJs setup\n");
+  console.log("Redline setup\n");
   console.log("Answer yes/no for each optional module. A \"no\" installs nothing —");
   console.log("no package, no config file, no env var required.\n");
 
